@@ -1,1 +1,31 @@
-<p>user-list works!</p>
+<!-- <button (click)="test()">Yeey</button> -->
+<table>
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre de usuario</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Ultima Conexion</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <th>173625358-7</th>
+            <th>Junaito</th>
+            <th>Perez</th>
+            <th>juanitoperes@example.com</th>
+            <th>13/12/2021</th>
+        </tr>
+        <tr *ngFor="let user of resultados">
+            <th scope="row">1</th>
+            <th>{{ user.username }}</th>
+            <th>{{ user.name }}</th>
+            <th>{{ user.last_name }}</th>
+            <th>{{ user.email }}</th>
+            <th>{{ user.last_login | date:"dd/MM/yyyy, h:mm:a" }}</th>
+        </tr>
+    </tbody>
+</table>
