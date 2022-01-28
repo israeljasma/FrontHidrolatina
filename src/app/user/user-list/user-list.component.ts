@@ -12,10 +12,16 @@ export class UserListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userService.getUsers();
+    this.userService.getUsersList();
   }
 
   get resultados(){
     return this.userService.resultados;
+  }
+
+  termino: string = '';
+
+  buscar() {
+    console.log(this.termino)
   }
 }
