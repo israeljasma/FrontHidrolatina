@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { switchMap } from 'rxjs';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-user-detail',
@@ -8,11 +10,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UserDetailComponent implements OnInit {
 
-  constructor( private activateRoute: ActivatedRoute ) { }
+  constructor( private activateRoute: ActivatedRoute, private userService: UserService ) { }
 
   ngOnInit(): void {
-
-    this.activateRoute.params.subscribe( params => { console.log( params )});
+    
+    this.activateRoute.params.pipe( switchMap( (param) => this.userService.getUserDetail( param['id'] )) ).subscribe( resp => { console.log(resp) });
     
   }
 

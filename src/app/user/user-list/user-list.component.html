@@ -41,7 +41,7 @@
                     <th>{{ user.last_name }}</th>
                     <th>{{ user.email }}</th>
                     <th>{{ user.last_login | date:"dd/MM/yyyy, h:mm:a" }}</th>
-                    <th>Button / Button</th>
+                    <th><a [routerLink]="[ '/users', user.id ]">Ver</a> / Button</th>
                 </tr>
             </tbody>
         </table>
