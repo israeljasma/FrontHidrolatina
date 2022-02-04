@@ -1,4 +1,4 @@
-export interface UserListResponse {
+export interface User {
     id:               number;
     password:         string;
     last_login:       Date;
