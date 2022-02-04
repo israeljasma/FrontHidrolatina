@@ -12,6 +12,7 @@ import { UserModule } from './user/user.module';
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     HttpClientModule,
     AppRoutingModule,
     UserModule
