@@ -1,1 +1,56 @@
-<p>user-detail works!</p>
+<div *ngIf="!user; else divUser" class="alert alert-info">
+    Espere por favor...
+</div>
+
+<ng-template #divUser>
+    <div class="container-xl px-4 mt-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-reader">Detalles de usuario</div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label class="small mb-1">Rut</label>
+                            <label class="form-control"> {{ user.username }} </label>
+                        </div>
+
+                        <div class="row gx-3 mb-3">
+                            <div class="col-md-6">
+                                <label class="small mb-1">Nombre</label>
+                                <label class="form-control"> {{ user.name }} </label>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="small mb-1">Apellido</label>
+                                <label class="form-control"> {{ user.last_name }} </label>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="small mb-1">Email</label>
+                            <label class="form-control"> {{ user.email }} </label>
+                        </div>
+
+                        <div class="row gx-3 mb-3">
+                            <div class="col-md-6">
+                                <label class="small mb-1">NFC</label>
+                                <label *ngIf="user.nfc" class="form-control"> Dispositivo NFC Vinculado </label>
+                                <label *ngIf="!user.nfc" class="form-control"> {{ user.nfc ? user.last_login : "Sin dispositivo NFC"}} </label>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="small mb-1">Ultima conexión</label>
+                                <label *ngIf="user.last_login" class="form-control"> {{ user.last_login | date:"mediumTime" }} </label>
+                                <label *ngIf="!user.last_login" class="form-control"> Sin información </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+
+
+<!-- <pre class="mt-5">
+    {{ user | json}}
+</pre> -->
