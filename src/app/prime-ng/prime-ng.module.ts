@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import {MenubarModule} from 'primeng/menubar';
+import { MenubarModule } from 'primeng/menubar';
+import { TableModule } from 'primeng/table';
 
 
 
@@ -11,7 +12,8 @@ import {MenubarModule} from 'primeng/menubar';
     CommonModule
   ],
   exports: [
-    MenubarModule
+    MenubarModule,
+    TableModule
   ]
 })
 export class PrimeNgModule { }
