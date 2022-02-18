@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../interface/user.interface';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class UserListComponent implements OnInit {
     this.userService.getUsersList();
   }
 
-  get resultados(){
+  get users(){
     return this.userService.resultados;
   }
 

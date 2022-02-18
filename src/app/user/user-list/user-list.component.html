@@ -1,5 +1,5 @@
 <!-- <button (click)="test()">Yeey</button> -->
-<div class="row">
+<!-- <div class="row">
     <div class="col">
         <form autocomplete="off" (ngSubmit)="buscar()">
             <input type="text" name="termino" class="form-control" [(ngModel)]="termino" placeholder="Buscar usuarios">
@@ -26,24 +26,43 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <th>173625358-7</th>
-                    <th>Junaito</th>
-                    <th>Perez</th>
-                    <th>juanitoperes@example.com</th>
-                    <th>13/12/2021</th>
-                </tr>
-                <tr *ngFor="let user of resultados">
-                    <th scope="row">1</th>
-                    <th>{{ user.username }}</th>
-                    <th>{{ user.name }}</th>
-                    <th>{{ user.last_name }}</th>
-                    <th>{{ user.email }}</th>
-                    <th>{{ user.last_login | date:"dd/MM/yyyy, h:mm:a" }}</th>
-                    <th><a [routerLink]="[ '/users', user.id ]">Ver</a> / Button</th>
+                <tr *ngFor="let user of users">
+                    <td scope="row">1</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.last_name }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.last_login | date:"dd/MM/yyyy, h:mm:a" }}</td>
+                    <td><a [routerLink]="[ '/users', user.id ]">Ver</a> / Button</td>
                 </tr>
             </tbody>
         </table>
+    </div>
+</div> -->
+
+<div class="grid">
+    <div class="col mt-2">
+        <p-table [value]="users" responsiveLayout="scroll">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th pSortableColumn="username">Nombre de usuario<p-sortIcon field="username"></p-sortIcon></th>
+                    <th pSortableColumn="name">Nombre<p-sortIcon field="name"></p-sortIcon></th>
+                    <th pSortableColumn="last_name">Apellido<p-sortIcon field="last_name"></p-sortIcon></th>
+                    <th pSortableColumn="email">E-mail<p-sortIcon field="email"></p-sortIcon></th>
+                    <th pSortableColumn="last_login">Ultima Conexion<p-sortIcon field="last_login"></p-sortIcon></th>
+                    <th >Opciones</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-users>
+                <tr>
+                    <td>{{ users.username }}</td>
+                    <td>{{ users.name }}</td>
+                    <td>{{ users.last_name }}</td>
+                    <td>{{ users.email }}</td>
+                    <td>{{ users.last_login }}</td>
+                    <td><a [routerLink]="[ '/users', users.id ]">Ver</a> / Button</td>
+                </tr>
+            </ng-template>
+        </p-table>
     </div>
 </div>
