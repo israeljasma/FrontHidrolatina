@@ -11,6 +11,7 @@ import { PrimeNgModule } from './prime-ng/prime-ng.module';
 //Idioma global es-CL
 import localeEsCL from '@angular/common/locales/es-CL';
 import { registerLocaleData } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 registerLocaleData( localeEsCL );
 
 @NgModule({
@@ -24,7 +25,8 @@ registerLocaleData( localeEsCL );
     AppRoutingModule,
     UserModule,
     SharedModule,
-    PrimeNgModule
+    PrimeNgModule,
+    BrowserAnimationsModule
   ],
   providers: [
     {
