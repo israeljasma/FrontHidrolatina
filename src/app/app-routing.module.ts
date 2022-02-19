@@ -1,20 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UserDetailComponent } from './user/user-detail/user-detail.component';
-import { UserListComponent } from './user/user-list/user-list.component';
 
 const routes: Routes = [
   {
-    path: 'users',
-    component: UserListComponent
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule )
   },
   {
-    path: 'users/:id',
-    component: UserDetailComponent
+    path: 'users',
+    loadChildren: () => import('./user/user.module').then( m => m.UserModule )
   },
   {
     path: '**',
-    redirectTo: ''
+    redirectTo: 'auth',
+    pathMatch: 'full'
   }
 ];
 
