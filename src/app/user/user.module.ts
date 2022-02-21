@@ -8,12 +8,15 @@ import { FormsModule } from '@angular/forms';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { RouterModule } from '@angular/router';
 import { PrimeNgModule } from '../prime-ng/prime-ng.module';
+import { HomeComponent } from './home/home.component';
+import { MaterialModule } from '../material/material.module';
 
 
 @NgModule({
   declarations: [
     UserListComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    HomeComponent
   ],
   exports: [
     UserListComponent,
@@ -24,7 +27,8 @@ import { PrimeNgModule } from '../prime-ng/prime-ng.module';
     FormsModule,
     RouterModule,
     PrimeNgModule,
-    UserRoutingModule
+    UserRoutingModule,
+    MaterialModule
   ]
 })
 export class UserModule { }

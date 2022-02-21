@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
     path: '',
+    component: HomeComponent,
     children: [
       {
         path: '',
