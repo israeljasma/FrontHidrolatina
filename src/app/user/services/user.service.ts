@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { User } from '../interface/user.interface';
 
 @Injectable({
@@ -8,7 +9,7 @@ import { User } from '../interface/user.interface';
 })
 export class UserService {
 
-  private apiUrl: string = 'http://127.0.0.1:8000';
+  private apiEndpoint: string = environment.apiEndpoint;
 
   constructor(private http: HttpClient) { }
 
@@ -16,7 +17,7 @@ export class UserService {
 
   getUsersList(): Observable <any> {
 
-    const url = `${ this.apiUrl }/users/`;
+    const url = `${ this.apiEndpoint }/users/`;
 
     this.http.get<User[]>(url).subscribe( (resp) => {
       console.log( resp );
@@ -28,7 +29,7 @@ export class UserService {
 
   getUserDetail(userId: string): Observable<User>{
 
-    const url = `${ this.apiUrl }/users/${ userId }`;
+    const url = `${ this.apiEndpoint }/users/${ userId }`;
 
     return this.http.get<User>(url);
   }
