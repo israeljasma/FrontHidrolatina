@@ -10,13 +10,15 @@ import { RouterModule } from '@angular/router';
 import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 import { HomeComponent } from './home/home.component';
 import { MaterialModule } from '../material/material.module';
+import { UserAddComponent } from './user-add/user-add.component';
 
 
 @NgModule({
   declarations: [
     UserListComponent,
     UserDetailComponent,
-    HomeComponent
+    HomeComponent,
+    UserAddComponent
   ],
   exports: [
     UserListComponent,
