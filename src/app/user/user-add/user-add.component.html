@@ -22,6 +22,25 @@
             </mat-form-field>
         </div>
 
-        <button mat-raised-button color="primary"><mat-icon>save</mat-icon> Guardar</button>
+        <div>
+            <mat-form-field fxFlex="100"> 
+                <mat-label>E-mail</mat-label>
+                <input matInput type="email" required>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="40px">
+            <mat-form-field fxFlex="100"> 
+                <mat-label>Password</mat-label>
+                <input matInput type="password" required>
+            </mat-form-field>
+    
+            <mat-form-field fxFlex="100"> 
+                <mat-label>Confirmar Password</mat-label>
+                <input matInput type="password" required>
+            </mat-form-field>
+        </div>
+
+        <button mat-raised-button color="primary"><mat-icon>save_alt</mat-icon> Guardar</button>
     </div>
 </div>
