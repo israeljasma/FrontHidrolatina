@@ -11,6 +11,7 @@ import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 import { HomeComponent } from './home/home.component';
 import { MaterialModule } from '../material/material.module';
 import { UserAddComponent } from './user-add/user-add.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { UserAddComponent } from './user-add/user-add.component';
   ],
   imports: [
     CommonModule,
+    FlexLayoutModule,
     FormsModule,
     RouterModule,
     PrimeNgModule,
