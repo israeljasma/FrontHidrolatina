@@ -33,4 +33,11 @@ export class UserService {
 
     return this.http.get<User>(url);
   }
+
+  addUser( user: User ): Observable<User>{
+
+    const url = `${ this.apiEndpoint }/users/`;
+
+    return this.http.post<User>(url, user);
+  }
 }
