@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { MaterialModule } from '../material/material.module';
 import { UserAddComponent } from './user-add/user-add.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { UserEditComponent } from './user-edit/user-edit.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     UserListComponent,
     UserDetailComponent,
     HomeComponent,
-    UserAddComponent
+    UserAddComponent,
+    UserEditComponent
   ],
   exports: [
     UserListComponent,
