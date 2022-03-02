@@ -40,4 +40,11 @@ export class UserService {
 
     return this.http.post<User>(url, user);
   }
+
+  updateUser( user: User ): Observable<User>{
+
+    const url = `${ this.apiEndpoint }/users/${ user.id }/`;
+
+    return this.http.put<User>(url, user);
+  }
 }
