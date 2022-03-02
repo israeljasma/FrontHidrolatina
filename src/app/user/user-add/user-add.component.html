@@ -6,33 +6,33 @@
         <div>
             <mat-form-field fxFlex="100"> 
                 <mat-label>Rut</mat-label>
-                <input matInput type="text" required>
+                <input matInput type="text" [(ngModel)]="user.username" required>
             </mat-form-field>
         </div>
         
-        <div fxLayout="row" fxLayoutGap="40px">
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
             <mat-form-field fxFlex="100"> 
                 <mat-label>Nombre</mat-label>
-                <input matInput type="text" required>
+                <input matInput type="text" [(ngModel)]="user.name" required>
             </mat-form-field>
     
             <mat-form-field fxFlex="100"> 
                 <mat-label>Apellido</mat-label>
-                <input matInput type="text" required>
+                <input matInput type="text" [(ngModel)]="user.last_name" required>
             </mat-form-field>
         </div>
 
         <div>
             <mat-form-field fxFlex="100"> 
                 <mat-label>E-mail</mat-label>
-                <input matInput type="email" required>
+                <input matInput type="email"  [(ngModel)]="user.email" required>
             </mat-form-field>
         </div>
 
-        <div fxLayout="row" fxLayoutGap="40px">
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
             <mat-form-field fxFlex="100"> 
                 <mat-label>Password</mat-label>
-                <input matInput type="password" required>
+                <input matInput type="password" [(ngModel)]="user.password" required>
             </mat-form-field>
     
             <mat-form-field fxFlex="100"> 
@@ -41,6 +41,6 @@
             </mat-form-field>
         </div>
 
-        <button mat-raised-button color="primary"><mat-icon>save_alt</mat-icon> Guardar</button>
+        <button mat-raised-button color="primary" (click)="saveUser()"><mat-icon>save_alt</mat-icon> Guardar</button>
     </div>
 </div>
