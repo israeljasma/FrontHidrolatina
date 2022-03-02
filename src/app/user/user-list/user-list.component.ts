@@ -19,10 +19,4 @@ export class UserListComponent implements OnInit {
   get users(){
     return this.userService.resultados;
   }
-
-  termino: string = '';
-
-  buscar() {
-    console.log(this.termino)
-  }
 }
