@@ -47,4 +47,11 @@ export class UserService {
 
     return this.http.put<User>(url, user);
   }
+
+  deleteUser( id: string ): Observable<any>{
+
+    const url = `${ this.apiEndpoint }/users/${ id }/`;
+
+    return this.http.delete<any>(url);
+  }
 }
