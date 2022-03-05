@@ -13,6 +13,7 @@ import { MaterialModule } from '../material/material.module';
 import { UserAddComponent } from './user-add/user-add.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { UserEditComponent } from './user-edit/user-edit.component';
+import { ConfirmComponent } from './components/confirm/confirm.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { UserEditComponent } from './user-edit/user-edit.component';
     UserDetailComponent,
     HomeComponent,
     UserAddComponent,
-    UserEditComponent
+    UserEditComponent,
+    ConfirmComponent
   ],
   exports: [
     UserListComponent,
