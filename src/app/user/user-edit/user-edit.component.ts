@@ -39,4 +39,7 @@ export class UserEditComponent implements OnInit {
     this.userService.updateUser( this.user ).subscribe( user => console.log('Actualizando', user ));
   }
 
+  delete(){
+    this.userService.deleteUser( this.user.id!.toString() ).subscribe( resp => { this.router.navigate(['/users']) });
+  }
 }

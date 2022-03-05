@@ -1,5 +1,5 @@
 <br>
-<h1>Nuevo Usuario</h1>
+<h1>Editar Usuario</h1>
 <br>
 <div fxLayout="row" fxLayoutAlign="center center">
     <div fxFlex="90" fxLayout="column">
@@ -40,7 +40,11 @@
                 <input matInput type="password" required>
             </mat-form-field>
         </div>
-
-        <button mat-raised-button color="primary" (click)="updateUser()"><mat-icon>save_alt</mat-icon> Guardar</button>
+        
+        <div fxLayout>
+            <button fxFlex="100" mat-raised-button color="primary" (click)="updateUser()"><mat-icon>save</mat-icon> Guardar</button>
+            <span class="spacer"></span>
+            <button fxFlex="100" mat-raised-button color="warn" (click)="delete()"><mat-icon>remove</mat-icon>Borrar</button>
+        </div>
     </div>
 </div>

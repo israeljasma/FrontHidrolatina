@@ -30,7 +30,9 @@
                         <td>{{ users.last_name }}</td>
                         <td>{{ users.email }}</td>
                         <td>{{ users.last_login }}</td>
-                        <td><button mat-raised-button color="primary" [routerLink]="[ '/users', users.id ]">ver</button> / <button mat-raised-button color="primary" [routerLink]="['/users/edit', users.id]">Editar</button></td>
+                        <td>
+                            <button mat-raised-button color="primary" [routerLink]="[ '/users', users.id ]">ver</button> / <button mat-raised-button color="primary" [routerLink]="['/users/edit', users.id]">Editar</button> / <button mat-raised-button color="warn" (click)="delete( users.id )">Eliminar</button>
+                        </td>
                     </tr>
                 </ng-template>
             </p-table>
