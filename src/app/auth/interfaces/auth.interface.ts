@@ -1,9 +1,13 @@
+export interface Auth {
+    token:           string;
+    "refresh-token": string;
+    user:            User;
+    message:         string;
+}
+
 export interface User {
-    id:         number;
-    last_login: Date | null;
-    username:   string;
-    email:      string;
-    name:       string;
-    last_name:  string;
-    nfc:        number | null;
+    username:  string;
+    email:     string;
+    name:      string;
+    last_name: string;
 }
