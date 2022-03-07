@@ -1,5 +1,16 @@
-<mat-grid-list cols="1">
-    <mat-grid-tile>
-        <button mat-raised-button color="primary" (click)="login()">Ingresar</button>
-    </mat-grid-tile>
-</mat-grid-list>
+<div fxLayoutAlign="center center" fxFill class="main-div">
+    <mat-card fxFlex="25">
+        <mat-toolbar color="primary">Login Page</mat-toolbar>
+        <div fxLayoutAlign="stretch" fxLayout="column" class="login-form"> <!-- Cambiar por form -->
+            <mat-form-field>
+              <input matInput placeholder="Nombre de usuario">
+            </mat-form-field>
+          
+            <mat-form-field>
+                <input matInput type="password" placeholder="Password">
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" (click)="login()">Ingresar</button>
+        </div> <!-- Cambiar por form -->
+    </mat-card>
+</div>
