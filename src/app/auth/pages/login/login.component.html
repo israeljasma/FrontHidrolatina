@@ -1,16 +1,20 @@
 <div fxLayoutAlign="center center" fxFill class="main-div">
-    <mat-card fxFlex="25" fxFlex.xs="90" fxFlex.sm="50" fxFlex.md="35">
-        <mat-toolbar color="primary">Login Page</mat-toolbar>
-        <div fxLayoutAlign="stretch" fxLayout="column" class="login-form"> <!-- Cambiar por form -->
-            <mat-form-field>
-              <input matInput placeholder="Nombre de usuario">
-            </mat-form-field>
-          
-            <mat-form-field>
-                <input matInput type="password" placeholder="Password">
-            </mat-form-field>
+    <mat-spinner *ngIf="loading" diameter="50"></mat-spinner>
+    <mat-card *ngIf="!loading" fxFlex="25" fxFlex.xs="90" fxFlex.sm="50" fxFlex.md="35">
+        <!-- <img src="../../../../assets/img/logo_hidrolatina.png"> -->
+        <mat-toolbar color="primary">Login</mat-toolbar>
+        <form [formGroup]="form" (ngSubmit)="login()">
+            <div fxLayoutAlign="stretch" fxLayout="column" class="login-form">
+                <mat-form-field>
+                    <input matInput autocomplete="off" formControlName="username" placeholder="Nombre de usuario">
+                </mat-form-field>
+                
+                <mat-form-field>
+                  <input matInput autocomplete="off" formControlName="password" type="password" placeholder="Password">
+                </mat-form-field>
 
-            <button mat-raised-button color="primary" (click)="login()">Ingresar</button>
-        </div> <!-- Cambiar por form -->
+                <button type="submit" mat-raised-button color="primary" [disabled]="form.invalid">Ingresar</button>
+            </div>
+        </form>
     </mat-card>
 </div>

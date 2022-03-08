@@ -17,8 +17,8 @@ export class AuthService {
   }
 
   credencials = {
-    username : '----',
-    password : '----',
+    username : '------',
+    password : '------',
   }
 
   constructor( private http: HttpClient ) { }
@@ -30,7 +30,7 @@ export class AuthService {
     return this.http.post<Auth>(`${ this.apiEndpoint }/login/`, this.credencials).pipe( map( auth => { this._auth = auth; return true; } ) );
   }
 
-  login(){
-    return this.http.post<Auth>(`${ this.apiEndpoint }/login/`, this.credencials).pipe(tap( auth => this._auth = auth ), tap( auth => localStorage.setItem('user', JSON.stringify(this.auth)) ))
+  login(data: any){
+    return this.http.post<Auth>(`${ this.apiEndpoint }/login/`, data).pipe(tap( auth => this._auth = auth ), tap( auth => localStorage.setItem('user', JSON.stringify(this.auth)) ))
   }
 }
