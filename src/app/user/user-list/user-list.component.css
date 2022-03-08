@@ -4,3 +4,21 @@
 .positionButtonRight {
     float: right;
 }
+
+table {
+    width: 100%;
+    margin-top: 10px;
+}
+
+th {
+    width: 16.6666%;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}

@@ -1,41 +1,66 @@
-<div class="grid">
-    <div class="col mt-2">
+<div class="container">
+    <mat-toolbar>
+        <span>Usuarios</span>
+        <span class="spacer"></span>
         <button mat-raised-button color="primary" class="positionButtonRight" [routerLink]="['/users/create']">Agregar usuario</button>
+    </mat-toolbar>
+
+    <mat-form-field appearance="standard">
+        <mat-label>Filtrar</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input autocomplete="off">
+    </mat-form-field>
+
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" matSort>
+  
+            <!-- <ng-container matColumnDef="No">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+                <td mat-cell *matCellDef="let user; let i = index"> {{i+1}} </td>
+            </ng-container> -->
+
+            <ng-container matColumnDef="username">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Rut </th>
+              <td mat-cell *matCellDef="let user"> {{user.username}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+              <td mat-cell *matCellDef="let user"> {{user.name}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="last_name">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Apellido </th>
+              <td mat-cell *matCellDef="let user"> {{user.last_name}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="email">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> E-mail </th>
+              <td mat-cell *matCellDef="let user"> {{user.email}} </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="last_login">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Ultima Conexion </th>
+                <td mat-cell *matCellDef="let user"> {{user.last_login}} </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef> </th>
+                <td mat-cell *matCellDef="let user" style="text-align: right;">
+                    <a class="pointer" [routerLink]="[ '/users', user.id ]" matTooltip="Ver usuario">
+                        <mat-icon>search</mat-icon>
+                    </a>
+                    <a class="pointer" [routerLink]="['/users/edit', user.id]" matTooltip="Editar usuario">
+                        <mat-icon>edit</mat-icon>
+                    </a>
+                    <a class="pointer" (click)="delete(user, user.id)" matTooltip="Eliminar usuario">
+                        <mat-icon>delete</mat-icon>
+                    </a>
+                </td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons aria-label="Select page of users"></mat-paginator>
     </div>
 </div>
-<mat-grid-list cols="1" *ngIf="!users; else divUsers">
-    <mat-grid-tile>
-        <mat-spinner></mat-spinner>
-    </mat-grid-tile>
-</mat-grid-list>
-
-<ng-template #divUsers>
-    <div class="grid">
-        <div class="col mt-2">
-            <p-table [value]="users" responsiveLayout="scroll">
-                <ng-template pTemplate="header">
-                    <tr>
-                        <th pSortableColumn="username">Rut<p-sortIcon field="username"></p-sortIcon></th>
-                        <th pSortableColumn="name">Nombre<p-sortIcon field="name"></p-sortIcon></th>
-                        <th pSortableColumn="last_name">Apellido<p-sortIcon field="last_name"></p-sortIcon></th>
-                        <th pSortableColumn="email">E-mail<p-sortIcon field="email"></p-sortIcon></th>
-                        <th pSortableColumn="last_login">Ultima Conexion<p-sortIcon field="last_login"></p-sortIcon></th>
-                        <th >Opciones</th>
-                    </tr>
-                </ng-template>
-                <ng-template pTemplate="body" let-users>
-                    <tr>
-                        <td>{{ users.username }}</td>
-                        <td>{{ users.name }}</td>
-                        <td>{{ users.last_name }}</td>
-                        <td>{{ users.email }}</td>
-                        <td>{{ users.last_login }}</td>
-                        <td>
-                            <button mat-raised-button color="primary" [routerLink]="[ '/users', users.id ]">ver</button> / <button mat-raised-button color="primary" [routerLink]="['/users/edit', users.id]">Editar</button> / <button mat-raised-button color="warn" (click)="delete( users.id )">Eliminar</button>
-                        </td>
-                    </tr>
-                </ng-template>
-            </p-table>
-        </div>
-    </div>
-</ng-template>
