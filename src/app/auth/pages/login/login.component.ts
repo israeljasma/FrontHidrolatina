@@ -72,7 +72,7 @@ export class LoginComponent implements OnInit {
       this.loading = false;
       
     }, 1500);
-    this.router.navigate(['./users']);
+    this.router.navigate(['./dashboard']);
   }
 
 }
