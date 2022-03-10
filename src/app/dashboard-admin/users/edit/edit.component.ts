@@ -50,7 +50,7 @@ export class EditComponent implements OnInit {
 
     dialog.afterClosed().subscribe( (result ) => {
       if (result) {
-        this.usersService.deleteUser( this.user.id!.toString() ).subscribe( resp => { this.router.navigate(['/users']), this.showSnackBar('Usuario eliminado con exito!') });
+        this.usersService.deleteUser( this.user.id!.toString() ).subscribe( resp => { this.router.navigate(['/dashboard/users']), this.showSnackBar('Usuario eliminado con exito!') });
       }
     } );
   }
