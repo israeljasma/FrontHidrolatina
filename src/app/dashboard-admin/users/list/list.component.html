@@ -51,7 +51,7 @@
                         <a class="pointer" [routerLink]="['/dashboard/users', user.id]" matTooltip="Ver usuario">
                             <mat-icon>search</mat-icon>
                         </a>
-                        <a class="pointer" [routerLink]="['/users/edit', user.id]" matTooltip="Editar usuario">
+                        <a class="pointer" [routerLink]="['/dashboard/users/edit', user.id]" matTooltip="Editar usuario">
                             <mat-icon>edit</mat-icon>
                         </a>
                         <a class="pointer" (click)="delete(user, user.id)" matTooltip="Eliminar usuario">
