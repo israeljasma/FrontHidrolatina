@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { UsersRoutingModule } from './users-routing.module';
 import { ListComponent } from './list/list.component';
 import { ConfirmComponent } from './components/confirm/confirm.component';
+import { MaterialModule } from 'src/app/material/material.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { ConfirmComponent } from './components/confirm/confirm.component';
   ],
   imports: [
     CommonModule,
-    UsersRoutingModule
+    UsersRoutingModule,
+    MaterialModule
   ]
 })
 export class UsersModule { }
