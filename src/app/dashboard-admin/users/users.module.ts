@@ -8,12 +8,14 @@ import { ListComponent } from './list/list.component';
 import { ConfirmComponent } from './components/confirm/confirm.component';
 import { MaterialModule } from 'src/app/material/material.module';
 import { CreateComponent } from './create/create.component';
+import { DetailComponent } from './detail/detail.component';
 
 @NgModule({
   declarations: [
     ListComponent,
     ConfirmComponent,
-    CreateComponent
+    CreateComponent,
+    DetailComponent
   ],
   imports: [
     CommonModule,

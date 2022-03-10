@@ -48,7 +48,7 @@
                 <mat-cell *matCellDef="let user">
                     <span class="mobile-label">Acciones:</span>
                     <div style="text-align: right;">
-                        <a class="pointer" [routerLink]="[ '/users', user.id ]" matTooltip="Ver usuario">
+                        <a class="pointer" [routerLink]="['/dashboard/users', user.id]" matTooltip="Ver usuario">
                             <mat-icon>search</mat-icon>
                         </a>
                         <a class="pointer" [routerLink]="['/users/edit', user.id]" matTooltip="Editar usuario">
