@@ -36,7 +36,7 @@ export class CreateComponent implements OnInit {
     }else if( this.user.email.trim().length === 0 ) {
       return;
     }
-    this.usersService.addUser( this.user ).subscribe( user => { this.router.navigate(['/users']), this.showSnackBar('Usuario creado con exito!')});
+    this.usersService.addUser( this.user ).subscribe( user => { this.router.navigate(['/dashboard/users']), this.showSnackBar('Usuario creado con exito!')});
   }
 
   showSnackBar(message: string){
