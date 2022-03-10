@@ -9,13 +9,15 @@ import { ConfirmComponent } from './components/confirm/confirm.component';
 import { MaterialModule } from 'src/app/material/material.module';
 import { CreateComponent } from './create/create.component';
 import { DetailComponent } from './detail/detail.component';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   declarations: [
     ListComponent,
     ConfirmComponent,
     CreateComponent,
-    DetailComponent
+    DetailComponent,
+    EditComponent
   ],
   imports: [
     CommonModule,
