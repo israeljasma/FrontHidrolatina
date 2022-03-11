@@ -9,7 +9,9 @@ const routes: Routes = [
   },
   {
     path: 'dashboard',
-    loadChildren: () => import('./dashboard-admin/dashboard-admin.module').then( m => m.DashboardAdminModule )
+    loadChildren: () => import('./dashboard-admin/dashboard-admin.module').then( m => m.DashboardAdminModule ),
+    canLoad: [AuthGuard],
+    canActivate: [AuthGuard]
   },
   {
     path: 'users',
