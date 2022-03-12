@@ -12,13 +12,23 @@
         Usuarios
     </button>
 
+    <button mat-button [routerLink]="">
+        <mat-icon>settings_accessibility</mat-icon>
+        Detección EPP
+    </button>
+
+    <button mat-button [routerLink]="">
+        <mat-icon>directions_run</mat-icon>
+        Detección Aciones
+    </button>
+
     <span class="spacer"></span>
 
     <span>{{ auth.user.name }} {{ auth.user.last_name }}</span>
 
     <button mat-button (click)="logout()">
         <mat-icon>logout</mat-icon>
-        Logout
+        Cerrar Sesión
     </button>
 </mat-toolbar>
 
