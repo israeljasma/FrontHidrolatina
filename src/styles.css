@@ -6,3 +6,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .spacer {
     flex: 1 1 auto;
 }
+
+.backgorund-img-content {
+    background-image: url("/assets/img/background_app.jpg");
+    background-size: cover;
+    background-position: center;
+  }
