@@ -19,6 +19,10 @@ const routes: Routes = [
       {
         path: 'ppes',
         loadChildren: () => import('./ppes/ppes.module').then( m => m.PpesModule )
+      },
+      {
+        path: 'actions',
+        loadChildren: () => import('./actions/actions.module').then( m => m.ActionsModule )
       }
     ]
   }
