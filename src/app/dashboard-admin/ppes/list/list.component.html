@@ -1,1 +1,88 @@
-<p>list works!</p>
+<div class="container">
+    <mat-toolbar style="background-color:transparent">
+        <span>Implementos detectados</span>
+        <span class="spacer"></span>
+        <!-- <button mat-raised-button class="positionButtonRight color-design" [routerLink]="['/dashboard/ppes/create']">Agregar usuario</button> -->
+    </mat-toolbar>
+
+    <mat-form-field appearance="standard">
+        <mat-label>Filtrar</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input autocomplete="off">
+    </mat-form-field>
+
+    <div class="example-container mat-elevation-z8">
+        <mat-table [dataSource]="dataSource" matSort>
+  
+            <!-- <ng-container matColumnDef="No">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+                <td mat-cell *matCellDef="let ppe; let i = index"> {{i+1}} </td>
+            </ng-container> -->
+            <ng-container matColumnDef="username">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Rut </mat-header-cell>
+                <mat-cell *matCellDef="let ppe"><span class="mobile-label">Rut:</span> {{ppe.user.username}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+                <mat-cell *matCellDef="let ppe"><span class="mobile-label">Rut:</span> {{ppe.user.name}} </mat-cell>
+              </ng-container>
+          
+            <ng-container matColumnDef="last_name">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Apellido </mat-header-cell>
+              <mat-cell *matCellDef="let ppe"><span class="mobile-label">Nombre:</span> {{ppe.user.last_name}} </mat-cell>
+            </ng-container>
+          
+            <ng-container matColumnDef="helmet">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Casco </mat-header-cell>
+              <mat-cell *matCellDef="let ppe"><span class="mobile-label">Apellido:</span> {{ppe.helmet}} </mat-cell>
+            </ng-container>
+          
+            <ng-container matColumnDef="headphones">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Audifonos </mat-header-cell>
+              <mat-cell *matCellDef="let ppe"><span class="mobile-label">E-mail:</span> {{ppe.headphones}} </mat-cell>
+            </ng-container>
+    
+            <ng-container matColumnDef="goggles">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Antiparras </mat-header-cell>
+                <mat-cell *matCellDef="let ppe"><span class="mobile-label">Ultima Conexión:</span> {{ppe.goggles}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="gloves">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Guantes </mat-header-cell>
+                <mat-cell *matCellDef="let ppe"><span class="mobile-label">Ultima Conexión:</span> {{ppe.gloves}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="boots">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Botas </mat-header-cell>
+                <mat-cell *matCellDef="let ppe"><span class="mobile-label">Ultima Conexión:</span> {{ppe.boots}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="date">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Fecha </mat-header-cell>
+                <mat-cell *matCellDef="let ppe"><span class="mobile-label">Ultima Conexión:</span> {{ppe.date}} </mat-cell>
+            </ng-container>
+    
+            <ng-container matColumnDef="actions">
+                <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                <mat-cell *matCellDef="let ppe">
+                    <span class="mobile-label">Acciones:</span>
+                    <div style="text-align: right;">
+                        <!-- <a class="pointer" [routerLink]="['/dashboard/ppes', ppe.id]" matTooltip="Ver usuario">
+                            <mat-icon>search</mat-icon>
+                        </a>
+                        <a class="pointer" [routerLink]="['/dashboard/ppes/edit', ppe.id]" matTooltip="Editar usuario">
+                            <mat-icon>edit</mat-icon>
+                        </a> -->
+                        <!-- <a class="pointer" (click)="delete(ppe, ppe.id)" matTooltip="Eliminar usuario">
+                            <mat-icon>delete</mat-icon>
+                        </a> -->
+                    </div>
+                </mat-cell>
+            </ng-container>
+          
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons aria-label="Select page of ppes"></mat-paginator>
+    </div>
+</div>
