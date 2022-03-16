@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { PpesRoutingModule } from './ppes-routing.module';
 import { ListComponent } from './list/list.component';
+import { MaterialModule } from 'src/app/material/material.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { ListComponent } from './list/list.component';
   ],
   imports: [
     CommonModule,
-    PpesRoutingModule
+    PpesRoutingModule,
+    MaterialModule
   ]
 })
 export class PpesModule { }
