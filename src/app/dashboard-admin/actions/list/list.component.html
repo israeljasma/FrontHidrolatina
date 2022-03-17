@@ -15,17 +15,17 @@
   
             <ng-container matColumnDef="username">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Rut </mat-header-cell>
-                <mat-cell *matCellDef="let actions"><span class="mobile-label">Rut:</span> {{actions.user.username}} </mat-cell>
+                <mat-cell *matCellDef="let actions"><span class="mobile-label">Rut:</span> <a [routerLink]="['/dashboard/actions/', actions.user.id]">{{actions.user.username}}</a> </mat-cell>
             </ng-container>
 
             <ng-container matColumnDef="name">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
-                <mat-cell *matCellDef="let actions"><span class="mobile-label">Rut:</span> {{actions.user.name}} </mat-cell>
+                <mat-cell *matCellDef="let actions"><span class="mobile-label">Nombre:</span> {{actions.user.name}} </mat-cell>
               </ng-container>
           
             <ng-container matColumnDef="last_name">
               <mat-header-cell *matHeaderCellDef mat-sort-header> Apellido </mat-header-cell>
-              <mat-cell *matCellDef="let actions"><span class="mobile-label">Nombre:</span> {{actions.user.last_name}} </mat-cell>
+              <mat-cell *matCellDef="let actions"><span class="mobile-label">Apellido:</span> {{actions.user.last_name}} </mat-cell>
             </ng-container>
           
             <ng-container matColumnDef="operator_present">
