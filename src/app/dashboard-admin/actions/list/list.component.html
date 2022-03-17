@@ -1,1 +1,74 @@
-<p>list works!</p>
+<div class="container">
+    <mat-toolbar style="background-color:transparent">
+        <span>Implementos detectados</span>
+        <span class="spacer"></span>
+        <span>Todos los registros</span>
+    </mat-toolbar>
+
+    <mat-form-field appearance="standard">
+        <mat-label>Filtrar</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input autocomplete="off">
+    </mat-form-field>
+
+    <div class="example-container mat-elevation-z8">
+        <mat-table [dataSource]="dataSource" matSort>
+  
+            <ng-container matColumnDef="username">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Rut </mat-header-cell>
+                <mat-cell *matCellDef="let actions"><span class="mobile-label">Rut:</span> {{actions.user.username}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+                <mat-cell *matCellDef="let actions"><span class="mobile-label">Rut:</span> {{actions.user.name}} </mat-cell>
+              </ng-container>
+          
+            <ng-container matColumnDef="last_name">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Apellido </mat-header-cell>
+              <mat-cell *matCellDef="let actions"><span class="mobile-label">Nombre:</span> {{actions.user.last_name}} </mat-cell>
+            </ng-container>
+          
+            <ng-container matColumnDef="operator_present">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Operador presente </mat-header-cell>
+              <mat-cell *matCellDef="let actions"><span class="mobile-label">Operador presente:</span> {{actions.operator_present}} </mat-cell>
+            </ng-container>
+          
+            <ng-container matColumnDef="action">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Acción </mat-header-cell>
+              <mat-cell *matCellDef="let actions"><span class="mobile-label">Acción</span> {{actions.action.action}} </mat-cell>
+            </ng-container>
+    
+            <ng-container matColumnDef="risk">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Riesgo </mat-header-cell>
+                <mat-cell *matCellDef="let actions"><span class="mobile-label">Riesgo</span> {{actions.risk.risk}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="date">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Fecha </mat-header-cell>
+                <mat-cell *matCellDef="let actions"><span class="mobile-label">Fecha:</span> {{actions.date}} </mat-cell>
+            </ng-container>
+    
+            <!-- <ng-container matColumnDef="actions">
+                <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                <mat-cell *matCellDef="let actions">
+                    <span class="mobile-label">Acciones:</span>
+                    <div style="text-align: right;">
+                        <a class="pointer" [routerLink]="['/dashboard/actionss', actions.id]" matTooltip="Ver usuario">
+                            <mat-icon>search</mat-icon>
+                        </a>
+                        <a class="pointer" [routerLink]="['/dashboard/actionss/edit', actions.id]" matTooltip="Editar usuario">
+                            <mat-icon>edit</mat-icon>
+                        </a>
+                        <a class="pointer" (click)="delete(actions, actions.id)" matTooltip="Eliminar usuario">
+                            <mat-icon>delete</mat-icon>
+                        </a>
+                    </div>
+                </mat-cell>
+            </ng-container> -->
+          
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons aria-label="Select page of actionss"></mat-paginator>
+    </div>
+</div>

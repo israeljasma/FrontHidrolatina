@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { ActionsRoutingModule } from './actions-routing.module';
 import { ListComponent } from './list/list.component';
+import { MaterialModule } from 'src/app/material/material.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -11,7 +13,9 @@ import { ListComponent } from './list/list.component';
   ],
   imports: [
     CommonModule,
-    ActionsRoutingModule
+    ActionsRoutingModule,
+    MaterialModule,
+    FlexLayoutModule
   ]
 })
 export class ActionsModule { }
