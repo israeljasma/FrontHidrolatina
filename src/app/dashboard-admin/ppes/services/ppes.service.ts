@@ -23,7 +23,7 @@ export class PpesService {
       console.log( resp );
       this.results = resp;
     });
-    this.results
+    
     return this.http.get(url);
   }
 }
