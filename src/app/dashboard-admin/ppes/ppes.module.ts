@@ -5,11 +5,13 @@ import { PpesRoutingModule } from './ppes-routing.module';
 import { ListComponent } from './list/list.component';
 import { MaterialModule } from 'src/app/material/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ListByUserComponent } from './list-by-user/list-by-user.component';
 
 
 @NgModule({
   declarations: [
-    ListComponent
+    ListComponent,
+    ListByUserComponent
   ],
   imports: [
     CommonModule,

@@ -38,6 +38,16 @@ th {
 .mobile-label {
     display: none;
 }
+
+a:link, a:visited, a:active
+{
+    color: #000000;
+    text-decoration: none;
+}
+a:hover {
+    color: #52b1e0;
+    text-decoration: none;
+}
   
 @media(max-width: 600px) {
     .mobile-label {

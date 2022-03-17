@@ -20,7 +20,7 @@
             </ng-container> -->
             <ng-container matColumnDef="username">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Rut </mat-header-cell>
-                <mat-cell *matCellDef="let ppe"><span class="mobile-label">Rut:</span> {{ppe.user.username}} </mat-cell>
+                <mat-cell *matCellDef="let ppe"><span class="mobile-label">Rut:</span><a [routerLink]="['/dashboard/actions/', ppe.user.id]">{{ppe.user.username}}</a></mat-cell>
             </ng-container>
 
             <ng-container matColumnDef="name">
