@@ -2,8 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Ppe } from '../interfaces/ppes.intarface';
-import { PpesService } from '../services/ppes.service';
+import { Ppe } from '../../interfaces/ppes.intarface';
+import { PpesService } from '../../services/ppes.service';
 
 @Component({
   selector: 'app-list',

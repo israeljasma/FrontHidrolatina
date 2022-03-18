@@ -34,28 +34,83 @@
             </ng-container>
           
             <ng-container matColumnDef="helmet">
-              <mat-header-cell *matHeaderCellDef mat-sort-header> Casco </mat-header-cell>
-              <mat-cell *matCellDef="let ppe"><span class="mobile-label">Casco:</span> {{ppe.helmet}} </mat-cell>
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Casco </mat-header-cell>
+                <mat-cell *matCellDef="let ppe">
+                  <span class="mobile-label">Casco:</span>
+
+                  <div *ngIf="ppe.helmet; else withoutPpe">
+                    <span class="material-icons" style="color: green;">check_circle_outline</span>
+                  </div>
+                  
+                  <ng-template #withoutPpe>
+                    <span class="material-icons" style="color: red;">highlight_off</span>
+                  </ng-template>
+
+                </mat-cell>
             </ng-container>
           
             <ng-container matColumnDef="headphones">
-              <mat-header-cell *matHeaderCellDef mat-sort-header> Audifonos </mat-header-cell>
-              <mat-cell *matCellDef="let ppe"><span class="mobile-label">Audifonos:</span> {{ppe.headphones}} </mat-cell>
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Audifonos </mat-header-cell>
+                <mat-cell *matCellDef="let ppe">
+                    <span class="mobile-label">Audifonos:</span>
+
+                    <div *ngIf="ppe.headphones; else withoutPpe">
+                        <span class="material-icons" style="color: green;">check_circle_outline</span>
+                      </div>
+                      
+                    <ng-template #withoutPpe>
+                        <span class="material-icons" style="color: red;">highlight_off</span>
+                    </ng-template>
+
+                </mat-cell>
             </ng-container>
     
             <ng-container matColumnDef="goggles">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Antiparras </mat-header-cell>
-                <mat-cell *matCellDef="let ppe"><span class="mobile-label">Antiparras:</span> {{ppe.goggles}} </mat-cell>
+                <mat-cell *matCellDef="let ppe">
+                    <span class="mobile-label">Antiparras:</span>
+
+                    <div *ngIf="ppe.goggles; else withoutPpe">
+                        <span class="material-icons" style="color: green;">check_circle_outline</span>
+                    </div>
+                        
+                    <ng-template #withoutPpe>
+                        <span class="material-icons" style="color: red;">highlight_off</span>
+                    </ng-template>
+
+                </mat-cell>
             </ng-container>
 
             <ng-container matColumnDef="gloves">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Guantes </mat-header-cell>
-                <mat-cell *matCellDef="let ppe"><span class="mobile-label">Guantes:</span> {{ppe.gloves}} </mat-cell>
+                <mat-cell *matCellDef="let ppe">
+                    <span class="mobile-label">Guantes:</span>
+
+                    <div *ngIf="ppe.gloves; else withoutPpe">
+                        <span class="material-icons" style="color: green;">check_circle_outline</span>
+                    </div>
+                        
+                    <ng-template #withoutPpe>
+                        <span class="material-icons" style="color: red;">highlight_off</span>
+                    </ng-template>
+
+                </mat-cell>
             </ng-container>
 
             <ng-container matColumnDef="boots">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Botas </mat-header-cell>
-                <mat-cell *matCellDef="let ppe"><span class="mobile-label">Botas:</span> {{ppe.boots}} </mat-cell>
+                <mat-cell *matCellDef="let ppe">
+                    <span class="mobile-label">Botas:</span>
+
+                    <div *ngIf="ppe.boots; else withoutPpe">
+                        <span class="material-icons" style="color: green;">check_circle_outline</span>
+                    </div>
+                        
+                    <ng-template #withoutPpe>
+                        <span class="material-icons" style="color: red;">highlight_off</span>
+                    </ng-template>
+
+                </mat-cell>
             </ng-container>
 
             <ng-container matColumnDef="date">
