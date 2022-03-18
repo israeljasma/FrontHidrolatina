@@ -40,7 +40,7 @@
     
             <ng-container matColumnDef="last_login">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Ultima Conexión </mat-header-cell>
-                <mat-cell *matCellDef="let user"><span class="mobile-label">Ultima Conexión:</span> {{user.last_login}} </mat-cell>
+                <mat-cell *matCellDef="let user"><span class="mobile-label">Ultima Conexión:</span> {{user.last_login | date: 'HH:mm:ss - MM/dd/yyyy'}} </mat-cell>
             </ng-container>
     
             <ng-container matColumnDef="actions">

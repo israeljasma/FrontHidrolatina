@@ -40,7 +40,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label class="small mb-1">Ultima conexión</label>
-                                <label *ngIf="user.last_login" class="form-control"> {{ user.last_login | date:"mediumTime" }} </label>
+                                <label *ngIf="user.last_login" class="form-control"> {{ user.last_login | date: 'HH:mm:ss - MM/dd/yyyy' }} </label>
                                 <label *ngIf="!user.last_login" class="form-control"> Sin información </label>
                             </div>
                         </div>
