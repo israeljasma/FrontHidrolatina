@@ -8,7 +8,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .backgorund-img-content {
-    background-image: url("/assets/img/background_app.jpg");
+    background-image: url("/assets/img-app/background_app.jpg");
     background-size: cover;
     background-position: center;
 }
