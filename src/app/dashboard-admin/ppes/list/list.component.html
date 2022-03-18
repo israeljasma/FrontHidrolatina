@@ -20,7 +20,7 @@
             </ng-container> -->
             <ng-container matColumnDef="username">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Rut </mat-header-cell>
-                <mat-cell *matCellDef="let ppe"><span class="mobile-label">Rut:</span><a [routerLink]="['/dashboard/actions/', ppe.user.id]">{{ppe.user.username}}</a></mat-cell>
+                <mat-cell *matCellDef="let ppe"><span class="mobile-label">Rut:</span><a [routerLink]="['/dashboard/ppes/', ppe.user.id]">{{ppe.user.username}}</a></mat-cell>
             </ng-container>
 
             <ng-container matColumnDef="name">
@@ -55,7 +55,7 @@
 
             <ng-container matColumnDef="boots">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Botas </mat-header-cell>
-                <mat-cell *matCellDef="let ppe"><span class="mobile-label">UBotas:</span> {{ppe.boots}} </mat-cell>
+                <mat-cell *matCellDef="let ppe"><span class="mobile-label">Botas:</span> {{ppe.boots}} </mat-cell>
             </ng-container>
 
             <ng-container matColumnDef="date">
