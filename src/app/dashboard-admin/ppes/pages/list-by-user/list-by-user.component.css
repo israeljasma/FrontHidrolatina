@@ -31,6 +31,12 @@ th {
     overflow: auto;
     max-height: 500px;
 }
+.no-user-image {
+    background-image: url('/assets/img-app/background_app.jpg');
+    background-size: cover;
+    height: 250px;
+    width: 250px;
+}
   
 .mobile-label {
     display: none;

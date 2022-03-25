@@ -26,4 +26,17 @@ export class PpesService {
     
     return this.http.get(url);
   }
+
+  getPpeListByUser(id: number): Observable <any> {
+
+    let data = {user: id};
+    const url = `${ this.apiEndpoint }/ppes/ppe/`;
+
+    this.http.get<Ppe[]>(url, {params: data}).subscribe( (resp) => {
+      console.log( resp );
+      this.results = resp;
+    });
+    
+    return this.http.get(url, {params: data});
+  }
 }
