@@ -17,7 +17,7 @@ export class UsersService {
 
   getUsersList(): Observable <any> {
 
-    const url = `${ this.apiEndpoint }/users/`;
+    const url = `${ this.apiEndpoint }/users/users/`;
 
     this.http.get<User[]>(url).subscribe( (resp) => {
       console.log( resp );
@@ -29,28 +29,28 @@ export class UsersService {
 
   getUserDetail(userId: string): Observable<User>{
 
-    const url = `${ this.apiEndpoint }/users/${ userId }`;
+    const url = `${ this.apiEndpoint }/users/users/${ userId }`;
 
     return this.http.get<User>(url);
   }
 
   addUser( user: User ): Observable<User>{
 
-    const url = `${ this.apiEndpoint }/users/`;
+    const url = `${ this.apiEndpoint }/users/users/`;
 
     return this.http.post<User>(url, user);
   }
 
   updateUser( user: User ): Observable<User>{
 
-    const url = `${ this.apiEndpoint }/users/${ user.id }/`;
+    const url = `${ this.apiEndpoint }/users/users/${ user.id }/`;
 
     return this.http.put<User>(url, user);
   }
 
   deleteUser( id: string ): Observable<any>{
 
-    const url = `${ this.apiEndpoint }/users/${ id }/`;
+    const url = `${ this.apiEndpoint }/users/users/${ id }/`;
 
     return this.http.delete<any>(url);
   }
