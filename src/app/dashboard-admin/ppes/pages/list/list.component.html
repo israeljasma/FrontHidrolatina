@@ -81,6 +81,22 @@
                 </mat-cell>
             </ng-container>
 
+            <ng-container matColumnDef="mask">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Mascarilla </mat-header-cell>
+                <mat-cell *matCellDef="let ppe">
+                    <span class="mobile-label">Mascarilla:</span>
+
+                    <div *ngIf="ppe.mask; else withoutPpe">
+                        <span class="material-icons" style="color: green;">check_circle_outline</span>
+                    </div>
+                        
+                    <ng-template #withoutPpe>
+                        <span class="material-icons" style="color: red;">highlight_off</span>
+                    </ng-template>
+
+                </mat-cell>
+            </ng-container>
+
             <ng-container matColumnDef="gloves">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Guantes </mat-header-cell>
                 <mat-cell *matCellDef="let ppe">

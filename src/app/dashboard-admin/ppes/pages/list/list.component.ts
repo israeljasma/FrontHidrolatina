@@ -12,7 +12,7 @@ import { PpesService } from '../../services/ppes.service';
 })
 export class ListComponent implements OnInit {
 
-  displayedColumns: string[] = ['username', 'name', 'last_name', 'helmet', 'headphones', 'goggles', 'gloves', 'boots', 'date'];
+  displayedColumns: string[] = ['username', 'name', 'last_name', 'helmet', 'headphones', 'goggles', 'mask', 'gloves', 'boots', 'date'];
   dataSource = new MatTableDataSource<Ppe>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

@@ -14,7 +14,7 @@ import { MatSort } from '@angular/material/sort';
 })
 export class ListByUserComponent implements OnInit {
 
-  displayedColumns: string[] = ['helmet', 'headphones', 'goggles', 'gloves', 'boots', 'date'];
+  displayedColumns: string[] = ['helmet', 'headphones', 'goggles', 'mask', 'gloves', 'boots', 'date'];
   dataSource = new MatTableDataSource<Ppe>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

@@ -3,6 +3,7 @@ export interface Ppe {
     helmet:        boolean;
     headphones:    boolean;
     goggles:       boolean;
+    mask:          boolean;
     gloves:        boolean;
     boots:         boolean;
     date:          Date;
