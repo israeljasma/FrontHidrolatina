@@ -30,37 +30,22 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  login() {
-
-    // const username = this.form.value.username;
-    // const password = this.form.value.password;
-
+  login(){
     this.data.username = this.form.value.username;
     this.data.password = this.form.value.password;
-
-    // this.authService.login( this.data ).subscribe( resp => {
-    //   console.log(resp)
-    //   this.fakeLoading()
-    // }, err => {
-    //   console.log(err.error.error)
-    // })
-
-    
 
     this.authService.login( this.data ).subscribe( resp => {
       if ( resp.token ){
         this.fakeLoading()
-        // this.router.navigate(['./users']);
       }
       }, err => {
-        // console.log(err.error.error)
         this.error(err.error.error)
-    })
+      });
 
     this.data.username = '';
     this.data.password = '';
   }
-
+  
   error(message: string) {
     this._snackBar.open(message, 'cerrar', { duration: 2500 })
   }
