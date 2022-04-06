@@ -28,9 +28,7 @@ export class AuthService {
             username: resp.user.username,
             name: resp.user.name,
             last_name: resp.user.last_name,
-            email: resp.user.email,
-            token: resp.token,
-            "refresh-token": resp['refresh-token']
+            email: resp.user.email
           };
         }
       }), map( resp => resp),
@@ -43,16 +41,22 @@ export class AuthService {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + localStorage.getItem('token') || ''
     })
-    return this.http.get<User>(url, { headers: headers }).pipe(
-      map( 
-        resp => {
-          return resp ? true : false;
-        }),
-        catchError( err => of(false))
-      );
+    return this.http.get<AuthResponse>(url, { headers: headers })
+    .pipe(
+      map( resp => {
+        this._userAuth = {
+          username: resp.user.username,
+          name: resp.user.name,
+          last_name: resp.user.last_name,
+          email: resp.user.email
+        };
+        return resp ? true : false;
+      }),
+      catchError( err => of(false))
+    )
   }
 
   handleError(error: HttpErrorResponse) {
     return throwError(() => error);
-}
+  }
 }
