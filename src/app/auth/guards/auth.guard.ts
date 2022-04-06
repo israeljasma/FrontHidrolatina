@@ -13,31 +13,23 @@ export class AuthGuard implements CanActivate, CanLoad {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    
-      return this.authService.verificaAutenticacion().pipe(tap( estaAutenticado => {
-        if( !estaAutenticado ) {
-          this.router.navigate(['./auth/login']);
-        }
-      } ));
-      
-    //   if( this.authService.auth.token){
-    //     return true;
-    //   }
-    // return false;
+  
+      return this.authService.tokenValidate().pipe(
+        tap( valid => {
+          if ( !valid ) {
+            this.router.navigate(['./auth/login']);
+          }
+        }));
   }
   canLoad(
     route: Route,
     segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-      return this.authService.verificaAutenticacion().pipe(tap( estaAutenticado => {
-        if( !estaAutenticado ) {
-          this.router.navigate(['./auth/login']);
-        }
-      } ));
-
-    //   if( this.authService.auth.token){
-    //     return true;
-    //   }
-    // return false;
+      return this.authService.tokenValidate().pipe(
+        tap( valid => {
+          if ( !valid ) {
+            this.router.navigate(['./auth/login']);
+          }
+        }));
   }
 }

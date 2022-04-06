@@ -9,8 +9,8 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 })
 export class HomeComponent implements OnInit {
 
-  get auth() {
-    return this.authService.auth;
+  get userAuth(){
+    return this.authService.userAuth;
   }
 
   constructor( private router: Router, private authService: AuthService ) { }

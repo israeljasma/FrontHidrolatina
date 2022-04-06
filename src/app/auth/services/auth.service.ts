@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { HttpClient } from '@angular/common/http';
-import { Auth } from '../interfaces/auth.interface';
-import { map, Observable, of, tap } from 'rxjs';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { AuthResponse, User, UserAuth } from '../interfaces/auth.interface';
+import { catchError, map, Observable, of, tap, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,27 +10,49 @@ import { map, Observable, of, tap } from 'rxjs';
 export class AuthService {
 
   private apiEndpoint: string = environment.apiEndpoint;
-  private _auth: Auth | undefined;
+  private _userAuth!: UserAuth ;
 
-  get auth(): Auth {
-    return { ...this._auth! }
-  }
-
-  credencials = {
-    username : '------',
-    password : '------',
+  get userAuth(): UserAuth {
+    return { ...this._userAuth };
   }
 
   constructor( private http: HttpClient ) { }
-  
-  verificaAutenticacion(): Observable<boolean> {
-    if (!localStorage.getItem('user')) {
-      return of(false);
-    }
-    return this.http.post<Auth>(`${ this.apiEndpoint }/login/`, this.credencials).pipe( map( auth => { this._auth = auth; return true; } ) );
+
+  login(body: any){
+    return this.http.post<AuthResponse>(`${ this.apiEndpoint }/login/`, body)
+    .pipe( 
+      tap( resp => {
+        if ( resp.token ) {
+          localStorage.setItem( 'token', resp.token );
+          this._userAuth = {
+            username: resp.user.username,
+            name: resp.user.name,
+            last_name: resp.user.last_name,
+            email: resp.user.email,
+            token: resp.token,
+            "refresh-token": resp['refresh-token']
+          };
+        }
+      }), map( resp => resp),
+      catchError(this.handleError));
   }
 
-  login(data: any){
-    return this.http.post<Auth>(`${ this.apiEndpoint }/login/`, data).pipe(tap( auth => this._auth = auth ), tap( auth => localStorage.setItem('user', JSON.stringify(this.auth)) ))
+  tokenValidate(): Observable<boolean>{
+    const url = `${ this.apiEndpoint }/api/token/renew/`;
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('token') || ''
+    })
+    return this.http.get<User>(url, { headers: headers }).pipe(
+      map( 
+        resp => {
+          return resp ? true : false;
+        }),
+        catchError( err => of(false))
+      );
   }
+
+  handleError(error: HttpErrorResponse) {
+    return throwError(() => error);
+}
 }
