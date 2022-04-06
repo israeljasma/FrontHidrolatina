@@ -1,7 +1,7 @@
-export interface Auth {
+export interface AuthResponse {
     token:           string;
     "refresh-token": string;
-    user:            User;
+    user:             User;
     message:         string;
 }
 
@@ -10,4 +10,13 @@ export interface User {
     email:     string;
     name:      string;
     last_name: string;
+}
+
+export interface UserAuth {
+    username:         string;
+    email:            string;
+    name:             string;
+    last_name:        string;
+    token?:           string;
+    "refresh-token"?: string;
 }
