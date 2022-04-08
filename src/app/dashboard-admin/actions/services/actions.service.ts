@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ActionDetection } from '../interfaces/actions.intarface';
 import { Observable } from 'rxjs';
 
@@ -18,9 +18,13 @@ export class ActionsService {
   getActionDetectionList(): Observable<any> {
 
     const url = `${ this.apiEndpoint }/actiondetections/action/`;
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('token') || ''
+    });
 
-    this.http.get<ActionDetection[]>(url).subscribe( resp => this.results = resp );
+    // this.http.get<ActionDetection[]>(url).subscribe( resp => this.results = resp );
 
-    return this.http.get(url);
+    return this.http.get(url, { headers: headers });
   }
 }
