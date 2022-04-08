@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -13,45 +13,64 @@ export class UsersService {
 
   constructor( private http: HttpClient ) { }
 
-  public resultados: User[] = [];
+  // public resultados: User[] = [];
 
   getUsersList(): Observable <any> {
 
     const url = `${ this.apiEndpoint }/users/users/`;
-
-    this.http.get<User[]>(url).subscribe( (resp) => {
-      console.log( resp );
-      this.resultados = resp;
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('token') || ''
     });
 
-    return this.http.get(url);
+    // this.http.get<User[]>(url, { headers: headers }).subscribe( (resp) => {
+    //   this.resultados = resp;
+    // });
+
+    return this.http.get(url, { headers: headers });
   }
 
   getUserDetail(userId: string): Observable<User>{
 
     const url = `${ this.apiEndpoint }/users/users/${ userId }`;
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('token') || ''
+    });
 
-    return this.http.get<User>(url);
+    return this.http.get<User>(url, { headers: headers });
   }
 
   addUser( user: User ): Observable<User>{
 
     const url = `${ this.apiEndpoint }/users/users/`;
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('token') || ''
+    });
 
-    return this.http.post<User>(url, user);
+    return this.http.post<User>(url, user, { headers: headers });
   }
 
   updateUser( user: User ): Observable<User>{
 
     const url = `${ this.apiEndpoint }/users/users/${ user.id }/`;
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('token') || ''
+    });
 
-    return this.http.put<User>(url, user);
+    return this.http.put<User>(url, user, { headers: headers });
   }
 
   deleteUser( id: string ): Observable<any>{
 
     const url = `${ this.apiEndpoint }/users/users/${ id }/`;
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('token') || ''
+    });
 
-    return this.http.delete<any>(url);
+    return this.http.delete<any>(url, { headers: headers });
   }
 }
