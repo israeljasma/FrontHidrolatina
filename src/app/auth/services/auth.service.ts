@@ -35,6 +35,10 @@ export class AuthService {
       catchError(this.handleError));
   }
 
+  logout(){
+    localStorage.clear();
+  }
+
   tokenValidate(): Observable<boolean>{
     const url = `${ this.apiEndpoint }/api/token/renew/`;
     const headers = new HttpHeaders({
