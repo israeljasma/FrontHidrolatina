@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Ppe } from '../interfaces/ppes.intarface';
@@ -18,25 +18,33 @@ export class PpesService {
   getPpeList(): Observable <any> {
 
     const url = `${ this.apiEndpoint }/ppes/ppe/`;
-
-    this.http.get<Ppe[]>(url).subscribe( (resp) => {
-      console.log( resp );
-      this.results = resp;
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('token') || ''
     });
+
+    // this.http.get<Ppe[]>(url).subscribe( (resp) => {
+    //   console.log( resp );
+    //   this.results = resp;
+    // });
     
-    return this.http.get(url);
+    return this.http.get(url, { headers: headers });
   }
 
   getPpeListByUser(id: number): Observable <any> {
 
     let data = {user: id};
     const url = `${ this.apiEndpoint }/ppes/ppe/`;
-
-    this.http.get<Ppe[]>(url, {params: data}).subscribe( (resp) => {
-      console.log( resp );
-      this.results = resp;
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('token') || ''
     });
+
+    // this.http.get<Ppe[]>(url, {params: data}).subscribe( (resp) => {
+    //   console.log( resp );
+    //   this.results = resp;
+    // });
     
-    return this.http.get(url, {params: data});
+    return this.http.get(url, {params: data, headers: headers });
   }
 }
