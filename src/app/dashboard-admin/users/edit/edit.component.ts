@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/user/services/user.service';
+import { UsersService } from '../services/users.service';
 import { User } from '../interfaces/users.intarface';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -22,7 +22,7 @@ export class EditComponent implements OnInit {
     email: ''
   }
 
-  constructor( private usersService: UserService, private activatedRoute: ActivatedRoute, private router: Router, private snackBar: MatSnackBar, private dialog: MatDialog) { }
+  constructor( private usersService: UsersService, private activatedRoute: ActivatedRoute, private router: Router, private snackBar: MatSnackBar, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.pipe( switchMap( ({ id }) => this.usersService.getUserDetail(id)) ).subscribe( user => this.user = user );
