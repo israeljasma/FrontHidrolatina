@@ -1,1 +1,71 @@
-<p>list-by-user works!</p>
+<mat-grid-list cols="1" *ngIf="!user; else divUser">
+    <mat-grid-tile>
+        <mat-spinner></mat-spinner>
+    </mat-grid-tile>
+</mat-grid-list>
+
+<ng-template #divUser>
+    <div class="container">
+        <div>
+            <mat-card>
+                <div fxLayout="row" fxLayout.xs="column">
+                    <div fxFlex="100">
+                        <div mat-card-avatar class="no-user-image"></div>
+                    </div>
+                    <div fxFlex="100">Nombre: </div>
+                    <div fxFlex="100">{{ user.name }}</div>
+                    <div fxFlex="100">Apellido: </div>
+                    <div fxFlex="100">{{ user.last_name }}</div>
+                    <div fxFlex="100">Rut: </div>
+                    <div fxFlex="100">{{ user.username }}</div>
+                </div>
+            </mat-card>
+        </div>
+        <div>
+            <mat-toolbar style="background-color:transparent">
+                <span>Acciones detectados</span>
+                <span class="spacer"></span>
+            </mat-toolbar>
+    
+            <div class="example-container mat-elevation-z8">
+                <mat-table [dataSource]="dataSource" matSort>
+                    
+                    <ng-container matColumnDef="operator_present">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Operador </mat-header-cell>
+                        <mat-cell *matCellDef="let action">
+                            <span class="mobile-label">Operador:</span>
+                            
+                            <div *ngIf="action.operator_present; else withoutAction">
+                                <span class="material-icons" style="color: green;">check_circle_outline</span>
+                            </div>
+                          
+                            <ng-template #withoutAction>
+                                <span class="material-icons" style="color: red;">highlight_off</span>
+                            </ng-template>
+        
+                        </mat-cell>
+                    </ng-container>
+                  
+                    <ng-container matColumnDef="action">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Acción </mat-header-cell>
+                        <mat-cell *matCellDef="let action"><span class="mobile-label">Acción:</span> {{action.action.action}} </mat-cell>
+                    </ng-container>
+            
+                    <ng-container matColumnDef="risk">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Riesgo </mat-header-cell>
+                        <mat-cell *matCellDef="let action"><span class="mobile-label">Riesgo:</span> {{action.risk.risk}} </mat-cell>
+                    </ng-container>
+        
+                    <ng-container matColumnDef="date">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Fecha </mat-header-cell>
+                        <mat-cell *matCellDef="let action"><span class="mobile-label">Fecha:</span> {{action.date | date: 'HH:mm:ss - MM/dd/yyyy'}} </mat-cell>
+                    </ng-container>
+                  
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                </mat-table>
+                <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons aria-label="Select page of action"></mat-paginator>
+            </div>
+        </div>
+    </div>
+</ng-template>

@@ -1,0 +1,61 @@
+.container {
+    padding: 10px;
+}
+
+table {
+    width: 100%;
+    margin-top: 10px;
+}
+
+th {
+    width: 25%;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+.example-container {
+    display: flex;
+    flex-direction: column;
+    max-height: 500px;
+    min-width: 300px;
+}
+  
+.mat-table {
+    overflow: auto;
+    max-height: 500px;
+}
+.no-user-image {
+    background-image: url('/assets/img-app/no_user_image.png');
+    background-size: cover;
+    height: 250px;
+    width: 250px;
+}
+  
+.mobile-label {
+    display: none;
+}
+ 
+@media(max-width: 600px) {
+    .mobile-label {
+        width: 80px;
+        display: inline-block;
+        font-weight: bold;
+    }
+    
+    .mat-header-row {
+        display: none;
+    }
+    
+    .mat-row { 
+        flex-direction: column;
+        align-items: start;
+        padding: 8px 24px;
+    }
+}
