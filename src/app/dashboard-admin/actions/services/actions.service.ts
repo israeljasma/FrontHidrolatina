@@ -27,4 +27,21 @@ export class ActionsService {
 
     return this.http.get(url, { headers: headers });
   }
+
+  getActionListByUser(id: number): Observable <any> {
+
+    let data = {user: id};
+    const url = `${ this.apiEndpoint }/actiondetections/action/`;
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('token') || ''
+    });
+
+    // this.http.get<Ppe[]>(url, {params: data}).subscribe( (resp) => {
+    //   console.log( resp );
+    //   this.results = resp;
+    // });
+    
+    return this.http.get(url, {params: data, headers: headers });
+  }
 }
