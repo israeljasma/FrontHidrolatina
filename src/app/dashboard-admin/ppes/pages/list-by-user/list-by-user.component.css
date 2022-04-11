@@ -32,7 +32,7 @@ th {
     max-height: 500px;
 }
 .no-user-image {
-    background-image: url('/assets/img-app/background_app.jpg');
+    background-image: url('/assets/img-app/no_user_image.png');
     background-size: cover;
     height: 250px;
     width: 250px;
