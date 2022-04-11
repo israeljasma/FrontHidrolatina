@@ -30,7 +30,18 @@
           
             <ng-container matColumnDef="operator_present">
               <mat-header-cell *matHeaderCellDef mat-sort-header> Operador presente </mat-header-cell>
-              <mat-cell *matCellDef="let actions"><span class="mobile-label">Operador presente:</span> {{actions.operator_present}} </mat-cell>
+              <mat-cell *matCellDef="let actions">
+                <span class="mobile-label">Operador:</span>
+                
+                <div *ngIf="actions.operator_present; else withoutAction">
+                    <span class="material-icons" style="color: green;">check_circle_outline</span>
+                </div>
+              
+                <ng-template #withoutAction>
+                    <span class="material-icons" style="color: red;">highlight_off</span>
+                </ng-template>
+
+                </mat-cell>
             </ng-container>
           
             <ng-container matColumnDef="action">
