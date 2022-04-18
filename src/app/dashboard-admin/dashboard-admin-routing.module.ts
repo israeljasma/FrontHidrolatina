@@ -25,6 +25,10 @@ const routes: Routes = [
         loadChildren: () => import('./actions/actions.module').then( m => m.ActionsModule )
       },
       {
+        path: 'sensors',
+        loadChildren: () => import('./sensors/sensors.module').then( m => m.SensorsModule )
+      },
+      {
         path: '**', 
         redirectTo: ''
       }
