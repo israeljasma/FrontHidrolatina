@@ -1,1 +1,19 @@
-<p>home works!</p>
+<div class="container">
+    <mat-toolbar style="background-color:transparent">
+        <span>Dashboard</span>
+        <span class="spacer"></span>
+    </mat-toolbar>
+    <div fxLayout="column" fxLayoutAlign="center center" style="margin-top: 100px;">
+        <div fxFlex="90" fxLayoutGap="30px" fxLayout="row">
+            <div fxFlex="100">
+                <button type="button" [routerLink]="['./users']"> <img src='/assets/img-app/usersButton.png' height ="300" width="300"/></button>
+            </div>
+            <div fxFlex="100">
+                <button [routerLink]="['./ppes']" type="button"> <img src='/assets/img-app/eppDetButton.png' height ="300" width="300"/></button>
+            </div>
+            <div fxFlex="100">
+                <button [routerLink]="['./actions']" type="button"> <img src='/assets/img-app/actDetButton.png' height ="300" width="300"/></button>
+            </div>
+        </div>
+    </div>
+</div>
