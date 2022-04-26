@@ -67,17 +67,6 @@ export class SensorsService {
     return this.http.get(url, { headers: headers });
   }
 
-  getGraphFeedConductivity(): Observable<any> {
-
-    const url = `${ this.apiEndpoint }/sensors/graphfeedconductivity/`;
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + localStorage.getItem('token') || ''
-    });
-
-    return this.http.get(url, { headers: headers });
-  }
-
   getMembraneFeedPressure(): Observable<any> {
 
     const url = `${ this.apiEndpoint }/sensors/membranefeedpressure/`;
