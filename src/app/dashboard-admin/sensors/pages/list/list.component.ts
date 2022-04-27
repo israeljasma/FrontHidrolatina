@@ -14,7 +14,7 @@ export class ListComponent implements OnInit {
     datasets: [
       {
         data: [],
-        label: 'Series A',
+        label: 'Conductividad de alimentación',
         backgroundColor: 'rgba(148,159,177,0.2)',
         borderColor: 'rgba(148,159,177,1)',
         pointBackgroundColor: 'rgba(148,159,177,1)',
@@ -31,7 +31,7 @@ export class ListComponent implements OnInit {
     datasets: [
       {
         data: [],
-        label: 'Series A',
+        label: 'Conductividad de permeado de membranas',
         backgroundColor: 'rgba(148,159,177,0.2)',
         borderColor: 'rgba(148,159,177,1)',
         pointBackgroundColor: 'rgba(148,159,177,1)',
@@ -48,7 +48,7 @@ export class ListComponent implements OnInit {
     datasets: [
       {
         data: [],
-        label: 'Series A',
+        label: 'Conductividad de permeado de vasijas',
         backgroundColor: 'rgba(148,159,177,0.2)',
         borderColor: 'rgba(148,159,177,1)',
         pointBackgroundColor: 'rgba(148,159,177,1)',
@@ -65,7 +65,7 @@ export class ListComponent implements OnInit {
     datasets: [
       {
         data: [],
-        label: 'Series A',
+        label: 'Presión de alimentación de vasijas',
         backgroundColor: 'rgba(148,159,177,0.2)',
         borderColor: 'rgba(148,159,177,1)',
         pointBackgroundColor: 'rgba(148,159,177,1)',
@@ -82,7 +82,7 @@ export class ListComponent implements OnInit {
     datasets: [
       {
         data: [],
-        label: 'Series A',
+        label: 'Temperatura de alimentación',
         backgroundColor: 'rgba(148,159,177,0.2)',
         borderColor: 'rgba(148,159,177,1)',
         pointBackgroundColor: 'rgba(148,159,177,1)',
@@ -99,7 +99,7 @@ export class ListComponent implements OnInit {
     datasets: [
       {
         data: [],
-        label: 'Series A',
+        label: 'Presión de alimentación de membranas',
         backgroundColor: 'rgba(148,159,177,0.2)',
         borderColor: 'rgba(148,159,177,1)',
         pointBackgroundColor: 'rgba(148,159,177,1)',
@@ -116,7 +116,7 @@ export class ListComponent implements OnInit {
     datasets: [
       {
         data: [],
-        label: 'Series A',
+        label: 'Caudal de permeado de membranas',
         backgroundColor: 'rgba(148,159,177,0.2)',
         borderColor: 'rgba(148,159,177,1)',
         pointBackgroundColor: 'rgba(148,159,177,1)',
@@ -133,7 +133,7 @@ export class ListComponent implements OnInit {
     datasets: [
       {
         data: [],
-        label: 'Series A',
+        label: 'Caudal de rechazo de membranas',
         backgroundColor: 'rgba(148,159,177,0.2)',
         borderColor: 'rgba(148,159,177,1)',
         pointBackgroundColor: 'rgba(148,159,177,1)',
@@ -150,7 +150,7 @@ export class ListComponent implements OnInit {
     datasets: [
       {
         data: [],
-        label: 'Series A',
+        label: 'Presión de rechazo de membranas',
         backgroundColor: 'rgba(148,159,177,0.2)',
         borderColor: 'rgba(148,159,177,1)',
         pointBackgroundColor: 'rgba(148,159,177,1)',
@@ -167,7 +167,7 @@ export class ListComponent implements OnInit {
     datasets: [
       {
         data: [],
-        label: 'Series A',
+        label: 'Presión de rechazo de vasijas',
         backgroundColor: 'rgba(148,159,177,0.2)',
         borderColor: 'rgba(148,159,177,1)',
         pointBackgroundColor: 'rgba(148,159,177,1)',
@@ -184,7 +184,7 @@ export class ListComponent implements OnInit {
     datasets: [
       {
         data: [],
-        label: 'Series A',
+        label: 'Caudal de alimentación de vasijas',
         backgroundColor: 'rgba(148,159,177,0.2)',
         borderColor: 'rgba(148,159,177,1)',
         pointBackgroundColor: 'rgba(148,159,177,1)',
@@ -201,7 +201,7 @@ export class ListComponent implements OnInit {
     datasets: [
       {
         data: [],
-        label: 'Series A',
+        label: 'Flujo de permeado de vasijas',
         backgroundColor: 'rgba(148,159,177,0.2)',
         borderColor: 'rgba(148,159,177,1)',
         pointBackgroundColor: 'rgba(148,159,177,1)',
@@ -236,7 +236,7 @@ export class ListComponent implements OnInit {
       result => {
         for (let x in result) {
           this.feedConductivityData.datasets[0].data.push(result[x].number)
-          this.feedConductivityData.labels?.push(this.datePipe.transform(result[x].time, 'yyyy-MM-dd'))
+          this.feedConductivityData.labels?.push(this.datePipe.transform(result[x].time, 'yyyy-MM-dd - HH:mm:ss'))
         }
       }
     )
@@ -247,7 +247,7 @@ export class ListComponent implements OnInit {
       result => {
         for (let x in result) {
           this.conductivityPermeateMembranesData.datasets[0].data.push(result[x].number)
-          this.conductivityPermeateMembranesData.labels?.push(this.datePipe.transform(result[x].time, 'yyyy-MM-dd'))
+          this.conductivityPermeateMembranesData.labels?.push(this.datePipe.transform(result[x].time, 'yyyy-MM-dd - HH:mm:ss'))
         }
       }
     )
@@ -258,7 +258,7 @@ export class ListComponent implements OnInit {
       result => {
         for (let x in result) {
           this.conductivityPermeateVesselsData.datasets[0].data.push(result[x].number)
-          this.conductivityPermeateVesselsData.labels?.push(this.datePipe.transform(result[x].time, 'yyyy-MM-dd'))
+          this.conductivityPermeateVesselsData.labels?.push(this.datePipe.transform(result[x].time, 'yyyy-MM-dd - HH:mm:ss'))
         }
       }
     )
@@ -269,7 +269,7 @@ export class ListComponent implements OnInit {
       result => {
         for (let x in result) {
           this.feedPressureVesselsData.datasets[0].data.push(result[x].number)
-          this.feedPressureVesselsData.labels?.push(this.datePipe.transform(result[x].time, 'yyyy-MM-dd'))
+          this.feedPressureVesselsData.labels?.push(this.datePipe.transform(result[x].time, 'yyyy-MM-dd - HH:mm:ss'))
         }
       }
     )
@@ -280,7 +280,7 @@ export class ListComponent implements OnInit {
       result => {
         for (let x in result) {
           this.feedTemperatureData.datasets[0].data.push(result[x].number)
-          this.feedTemperatureData.labels?.push(this.datePipe.transform(result[x].time, 'yyyy-MM-dd'))
+          this.feedTemperatureData.labels?.push(this.datePipe.transform(result[x].time, 'yyyy-MM-dd - HH:mm:ss'))
         }
       }
     )
@@ -291,7 +291,7 @@ export class ListComponent implements OnInit {
       result => {
         for (let x in result) {
           this.membraneFeedPressureData.datasets[0].data.push(result[x].number)
-          this.membraneFeedPressureData.labels?.push(this.datePipe.transform(result[x].time, 'yyyy-MM-dd'))
+          this.membraneFeedPressureData.labels?.push(this.datePipe.transform(result[x].time, 'yyyy-MM-dd - HH:mm:ss'))
         }
       }
     )
@@ -302,7 +302,7 @@ export class ListComponent implements OnInit {
       result => {
         for (let x in result) {
           this.membranePermeateData.datasets[0].data.push(result[x].number)
-          this.membranePermeateData.labels?.push(this.datePipe.transform(result[x].time, 'yyyy-MM-dd'))
+          this.membranePermeateData.labels?.push(this.datePipe.transform(result[x].time, 'yyyy-MM-dd - HH:mm:ss'))
         }
       }
     )
@@ -313,7 +313,7 @@ export class ListComponent implements OnInit {
       result => {
         for (let x in result) {
           this.membraneRejectionFlowData.datasets[0].data.push(result[x].number)
-          this.membraneRejectionFlowData.labels?.push(this.datePipe.transform(result[x].time, 'yyyy-MM-dd'))
+          this.membraneRejectionFlowData.labels?.push(this.datePipe.transform(result[x].time, 'yyyy-MM-dd - HH:mm:ss'))
         }
       }
     )
@@ -324,7 +324,7 @@ export class ListComponent implements OnInit {
       result => {
         for (let x in result) {
           this.membraneRejectionPressureData.datasets[0].data.push(result[x].number)
-          this.membraneRejectionPressureData.labels?.push(this.datePipe.transform(result[x].time, 'yyyy-MM-dd'))
+          this.membraneRejectionPressureData.labels?.push(this.datePipe.transform(result[x].time, 'yyyy-MM-dd - HH:mm:ss'))
         }
       }
     )
@@ -335,7 +335,7 @@ export class ListComponent implements OnInit {
       result => {
         for (let x in result) {
           this.rejectPressureVesselsData.datasets[0].data.push(result[x].number)
-          this.rejectPressureVesselsData.labels?.push(this.datePipe.transform(result[x].time, 'yyyy-MM-dd'))
+          this.rejectPressureVesselsData.labels?.push(this.datePipe.transform(result[x].time, 'yyyy-MM-dd - HH:mm:ss'))
         }
       }
     )
@@ -346,7 +346,7 @@ export class ListComponent implements OnInit {
       result => {
         for (let x in result) {
           this.vesselsFeedingFlowData.datasets[0].data.push(result[x].number)
-          this.vesselsFeedingFlowData.labels?.push(this.datePipe.transform(result[x].time, 'yyyy-MM-dd'))
+          this.vesselsFeedingFlowData.labels?.push(this.datePipe.transform(result[x].time, 'yyyy-MM-dd - HH:mm:ss'))
         }
       }
     )
@@ -357,7 +357,7 @@ export class ListComponent implements OnInit {
       result => {
         for (let x in result) {
           this.vesselsPermeateFlowData.datasets[0].data.push(result[x].number)
-          this.vesselsPermeateFlowData.labels?.push(this.datePipe.transform(result[x].time, 'yyyy-MM-dd'))
+          this.vesselsPermeateFlowData.labels?.push(this.datePipe.transform(result[x].time, 'yyyy-MM-dd - HH:mm:ss'))
         }
       }
     )
