@@ -9,6 +9,8 @@ import { ChartConfiguration, ChartType } from 'chart.js';
 export class LineChartComponent implements OnInit {
 
   @Input() lineChartData!: ChartConfiguration['data']
+  @Input() title!: string
+
 
   public lineChartOptions: ChartConfiguration['options'] = {
     elements: {
