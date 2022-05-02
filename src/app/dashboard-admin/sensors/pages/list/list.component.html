@@ -1,47 +1,49 @@
-<div> 
-  <app-line-chart [lineChartData]="feedConductivityData"></app-line-chart>
+<div fxLayout="row = 2" fxLayoutAlign="space-around center">
+  <div> 
+    <app-line-chart [lineChartData]="feedConductivityData" [title]="'Conductividad de alimentación'"></app-line-chart>
+  </div>
+      
+  <div> 
+    <app-line-chart [lineChartData]="conductivityPermeateMembranesData" [title]="'Conductividad de permeado de membranas'"></app-line-chart>
+  </div>
+  
+  <!-- <div> 
+    <app-line-chart [lineChartData]="conductivityPermeateVesselsData"></app-line-chart>
+  </div> -->
+  
+  <!-- <div> 
+    <app-line-chart [lineChartData]="feedPressureVesselsData"></app-line-chart>
+  </div> -->
+  
+  <div> 
+    <app-line-chart [lineChartData]="feedTemperatureData" [title]="'Temperatura de alimentación'"></app-line-chart>
+  </div>
+  
+  <div> 
+    <app-line-chart [lineChartData]="membraneFeedPressureData" [title]="'Presíon de alimentación de membranas'"></app-line-chart>
+  </div>
+  
+  <div> 
+    <app-line-chart [lineChartData]="membranePermeateData" [title]="'Caudal de permeado de membranas'"></app-line-chart>
+  </div>
+  
+  <div> 
+    <app-line-chart [lineChartData]="membraneRejectionFlowData" [title]="'Caudal de rechazo de membranas'"></app-line-chart>
+  </div>
+  
+  <div> 
+    <app-line-chart [lineChartData]="membraneRejectionPressureData" [title]="'Presíon de rechazo de membranas'"></app-line-chart>
+  </div>
+  
+  <!-- <div> 
+    <app-line-chart [lineChartData]="rejectPressureVesselsData"></app-line-chart>
+  </div> -->
+  
+  <!-- <div> 
+    <app-line-chart [lineChartData]="vesselsFeedingFlowData"></app-line-chart>
+  </div> -->
+  
+  <!-- <div> 
+    <app-line-chart [lineChartData]="vesselsPermeateFlowData"></app-line-chart>
+  </div> -->
 </div>
-    
-<div> 
-  <app-line-chart [lineChartData]="conductivityPermeateMembranesData"></app-line-chart>
-</div>
-
-<!-- <div> 
-  <app-line-chart [lineChartData]="conductivityPermeateVesselsData"></app-line-chart>
-</div> -->
-
-<!-- <div> 
-  <app-line-chart [lineChartData]="feedPressureVesselsData"></app-line-chart>
-</div> -->
-
-<div> 
-  <app-line-chart [lineChartData]="feedTemperatureData"></app-line-chart>
-</div>
-
-<div> 
-  <app-line-chart [lineChartData]="membraneFeedPressureData"></app-line-chart>
-</div>
-
-<div> 
-  <app-line-chart [lineChartData]="membranePermeateData"></app-line-chart>
-</div>
-
-<div> 
-  <app-line-chart [lineChartData]="membraneRejectionFlowData"></app-line-chart>
-</div>
-
-<div> 
-  <app-line-chart [lineChartData]="membraneRejectionPressureData"></app-line-chart>
-</div>
-
-<!-- <div> 
-  <app-line-chart [lineChartData]="rejectPressureVesselsData"></app-line-chart>
-</div> -->
-
-<!-- <div> 
-  <app-line-chart [lineChartData]="vesselsFeedingFlowData"></app-line-chart>
-</div> -->
-
-<!-- <div> 
-  <app-line-chart [lineChartData]="vesselsPermeateFlowData"></app-line-chart>
-</div> -->
