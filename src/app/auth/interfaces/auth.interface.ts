@@ -6,10 +6,14 @@ export interface AuthResponse {
 }
 
 export interface User {
-    username:  string;
-    email:     string;
-    name:      string;
-    last_name: string;
+    username:     string;
+    email:        string;
+    name:         string;
+    last_name:    string;
+    is_active:    boolean;
+    is_superuser: boolean;
+    is_staff:     boolean;
+    groups:       any[];
 }
 
 export interface UserAuth {
