@@ -14,6 +14,12 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'home',
+    loadChildren: () => import('./dashboard-user/dashboard-user.module').then( m => m.DashboardUserModule ),
+    canLoad: [AuthGuard],
+    canActivate: [AuthGuard]
+  },
+  {
     path: '**',
     redirectTo: 'auth',
     pathMatch: 'full'
