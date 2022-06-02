@@ -10,6 +10,11 @@ export interface User {
     is_active?:        boolean;
     is_staff?:         boolean;
     nfc?:              number | null;
-    groups?:           any[];
+    groups?:           Group[];
     user_permissions?: any[];
+}
+
+export interface Group {
+    id:   number;
+    name: string;
 }

@@ -13,7 +13,12 @@ export interface User {
     is_active?:    boolean;
     is_superuser?: boolean;
     is_staff?:     boolean;
-    groups?:       any[];
+    groups?:       Group[];
+}
+
+export interface Group {
+    id:   number;
+    name: string;
 }
 
 export interface UserAuth {
