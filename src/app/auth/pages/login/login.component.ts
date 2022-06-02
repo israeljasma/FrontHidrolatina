@@ -36,10 +36,19 @@ export class LoginComponent implements OnInit {
 
     this.authService.login( this.data ).subscribe( resp => {
       if ( resp.token ){
-        this.fakeLoading()
+        // this.fakeLoading()
+        if ( resp.user.is_superuser || resp.user.is_staff ){
+          this.fakeLoading(true)
+        }else{
+          this.fakeLoading(false)
+        } 
       }
       }, err => {
-        this.error(err.error.error)
+        if (err.error.error){
+          this.error(err.error.error)
+        }else{
+          this.error(err.error.detail)
+        }
       });
 
     this.data.username = '';
@@ -50,14 +59,19 @@ export class LoginComponent implements OnInit {
     this._snackBar.open(message, 'cerrar', { duration: 2500 })
   }
 
-  fakeLoading(){
+  fakeLoading(userType: boolean){
     this.loading = true;
 
     setTimeout(() => {
       this.loading = false;
       
     }, 3000);
-    this.router.navigate(['./dashboard']);
+    if ( userType ){
+      this.router.navigate(['./dashboard']);
+    }else{
+      this.router.navigate(['./home']);
+    }
+      
   }
 
 }
