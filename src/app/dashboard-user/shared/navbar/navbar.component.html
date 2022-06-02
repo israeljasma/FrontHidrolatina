@@ -1,1 +1,38 @@
-<p>navbar works!</p>
+<mat-toolbar class="mat-elevation-z6 color-design">
+        
+    <span>Hidrolatina</span>
+
+    <button mat-button [routerLink]="['./']">
+        <mat-icon>home</mat-icon>
+        Home
+    </button>
+
+    <button mat-button [routerLink]="['./users']">
+        <mat-icon>people</mat-icon>
+        Usuarios
+    </button>
+
+    <button mat-button [routerLink]="['./ppes']">
+        <mat-icon>settings_accessibility</mat-icon>
+        Detección EPP
+    </button>
+
+    <button mat-button [routerLink]="['./actions']">
+        <mat-icon>directions_run</mat-icon>
+        Detección Aciones
+    </button>
+
+    <button mat-button [routerLink]="['./sensors']">
+        <mat-icon>sensors</mat-icon>
+        Sensores
+    </button>
+
+    <span class="spacer"></span>
+
+    <!-- <span>{{ userAuth.name }} {{ userAuth.last_name }}</span>
+
+    <button mat-button (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        Cerrar Sesión
+    </button> -->
+</mat-toolbar>
