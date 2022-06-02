@@ -36,8 +36,7 @@ export class LoginComponent implements OnInit {
 
     this.authService.login( this.data ).subscribe( resp => {
       if ( resp.token ){
-        // this.fakeLoading()
-        if ( resp.user.is_superuser || resp.user.is_staff ){
+        if ( resp.user.is_superuser || resp.user.is_staff || resp.user.groups![0].name == 'admin'){
           this.fakeLoading(true)
         }else{
           this.fakeLoading(false)
