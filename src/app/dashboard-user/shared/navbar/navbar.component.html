@@ -7,9 +7,9 @@
         Home
     </button>
 
-    <button mat-button [routerLink]="['./users']">
-        <mat-icon>people</mat-icon>
-        Usuarios
+    <button mat-button [routerLink]="['./profile']">
+        <mat-icon>person</mat-icon>
+        Perfil
     </button>
 
     <button mat-button [routerLink]="['./ppes']">
@@ -29,10 +29,10 @@
 
     <span class="spacer"></span>
 
-    <!-- <span>{{ userAuth.name }} {{ userAuth.last_name }}</span>
+    <span>{{ userAuth.name }} {{ userAuth.last_name }}</span>
 
     <button mat-button (click)="logout()">
         <mat-icon>logout</mat-icon>
         Cerrar Sesión
-    </button> -->
+    </button>
 </mat-toolbar>
